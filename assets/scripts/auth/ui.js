@@ -21,9 +21,10 @@ const signUpFailure = (error) => {
 const signInSuccess = (data) => {
   console.log('signIn success ran data is:', data)
   store.user = data.user
+  // show all the race content
   raceUi.displayAllRaces()
   $('.show-all-races-content').show()
-
+  // clear all forms and hide all messages
   $('.login-signup-container').hide()
   $('.password-wrong-message').hide()
   $('.password-mismatch-message').hide()
