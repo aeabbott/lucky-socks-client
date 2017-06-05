@@ -1,5 +1,6 @@
 'use strict'
 const store = require('../store')
+const raceUi = require('../race/ui.js')
 
 const signUpSuccess = (data) => {
   console.log(data)
@@ -20,11 +21,14 @@ const signUpFailure = (error) => {
 const signInSuccess = (data) => {
   console.log('signIn success ran data is:', data)
   store.user = data.user
+  // show all the race content
+  raceUi.displayAllRaces()
+  $('.show-all-races-content').show()
+  // clear all forms and hide all messages
   $('.login-signup-container').hide()
   $('.password-wrong-message').hide()
   $('.password-mismatch-message').hide()
   $('.acct-success-message').hide()
-  $('.show-all-races-content').show()
   $('.navbar').show()
   $('#login-form')[0].reset()
   $('.pass-success-message').hide()
