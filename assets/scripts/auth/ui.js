@@ -27,6 +27,7 @@ const signInSuccess = (data) => {
   $('.show-all-races-content').show()
   $('.navbar').show()
   $('#login-form')[0].reset()
+  $('.pass-success-message').hide()
   $('.old-password-mismatch-message').hide()
 
 }
@@ -50,10 +51,8 @@ const changePasswordFailure = (error) => {
 const signOutSuccess = (data) => {
   store.user = null
   $('.login-signup-container').show()
-  $('.birthday-content').hide()
+  $('.show-all-races-content').hide()
   $('.navbar').hide()
-  $('.birthdays-list').hide()
-  $('#birthday-stats').hide()
 }
 
 module.exports = {
