@@ -1,0 +1,52 @@
+<!-- Add Bday Modal -->
+<form id="add-race">
+<fieldset>
+<div id="add-race-modal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header">
+        <h3>Add a race <span class="extra-title muted"></span></h3>
+    </div>
+    <div class="modal-body form-horizontal">
+      <!-- Race Day  -->
+        <div class="control-group">
+            <label for="race_day" class="control-label">Race Date</label>
+            <div class="controls">
+              <input type="date" id="race" name="race[race_day]" min="1900-01-01" max="2500-01-01" required>
+            </div>
+        </div>
+        <!-- Race Location -->
+        <div class="control-group">
+            <label for="race_location" class="control-label">Race Location</label>
+            <div class="controls">
+                <input type="text" name="race[location]" required>
+            </div>
+        </div>
+        <!-- Race Distance -->
+        <div class="control-group">
+          <label for="race_distance">Distance</label>
+          <select class="form-control controls" id="race-distance" name="race[distance]">
+            <option value="3.1">5k</option>
+            <option value="6.2">10k</option>
+            <option value="13.1">Half Marathon</option>
+            <option value="26.2">Marathon</option>
+          </select>
+        </div>
+        <!--Race Time -->
+        <div class="control-group" name = "race[time]">
+            <label for="race_time" class="control-label">Result</label>
+            <div>
+            <input type="text" id="hours" class="time-input" value="0" maxlength="2"/> hr
+            <input type="text" id="minutes" class="time-input" value="0" maxlength="2" /> min
+            <input type="text" id="seconds" class="time-input" value="0" maxlength="2" /> sec
+          </div>
+        </div>
+    <div class="modal-footer">
+        <button type = "button" class="btn cls-add-race-modal" data-dismiss="modal" aria-hidden="true">Close</button>
+        <button type = "submit" class="btn btn-primary">Save changes</button>
+    </div>
+  </div>
+</div>
+</div>
+</fieldset>
+</form>
