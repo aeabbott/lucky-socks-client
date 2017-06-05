@@ -12,6 +12,15 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
+    <!-- Nav Bar  -->
+      <nav class="navbar navbar-default">
+        <ul class = "nav">
+          <form id="sign-out" style="float:right">
+          <button type="submit" class="btn btn-default  sign-out-btn">Sign Out</button>
+          </form>
+            <button type="button" style="float:right" class="btn btn-default  sign-out-btn change-pass-btn">Change Password</button>
+          </ul>
+      </nav>
       <!-- Landing Page -->
       <div class="jumbotron">
           <h1></h1>
@@ -80,5 +89,19 @@
       			</div>
       		</div>
       	</div>
+<!-- Sign Up Success Message  -->
+  <div class = "alert-container">
+    <div class="alert alert-success acct-success-message">
+      <strong>Booya!</strong> You have created an account-now log in!
+    </div>
+    <div class="alert alert-danger password-mismatch-message">
+      <strong>Oops!</strong> Something went wrong. Please try again.
+    </div>
+  </div>
+<!--Race Content  -->
+<div id="show-all-races" class="content show-all-races-content">
+  <p>this is where all the race info will display</p>
+</div>
+
     </body>
 </html>
