@@ -1,10 +1,45 @@
 [![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
 
-# browser-template
+# User stories
+Project Goal: To create a virtual “medal” holder where users input information about their races.
 
-A template for starting front-end projects. Webpack for `require` system, build
-pipeline, and development server. Boostrap and Handlebars.js included. No
-front-end frameworks included.
+
+### Auth:
+1. As a user, I want to be able to create an account username and password- sign up.
+1. As a user, I want to be able to sign into the app using the username and password I created.
+1. As a user, I want to be able to change my password.
+1. As a user, I want to be able to sign out.
+
+### Core RQs:
+1. As a user, I want to be able to “create/log” a race distance and time I have ran.
+  1.1 User enters:
+    1.1.1 Race Date
+    1.1.2 Race Time- Hours, Mins, Seconds
+      1.1.2.1 If a field is left blank- default to zero
+      1.1.2.2 Mins is the only field required
+      1.1.2.3 Open question- can they enter 1:01 as 61 and will it still work
+  	1.2.1 Race Distance- Drop Down box
+	      1.2.1.1 Half
+	      1.2.1.2 Full
+    1.3.1 Race Name
+	  1.4.1 Race Location
+2. As a user, I want to be able to edit a race and distance and time I have ran.
+	1. Editable fields are:
+	        1. All fields
+3. As a user, I want to be able to delete a race I have ran.
+4. As a user, I want to see all the races I have ran.
+	1. Default sort list by date
+
+
+### R2:
+1. As a user, when I log in, I want to see a view of all my PRs for each distance.
+1. As a user, when I create a race, I want the app to calculate and save my pace.
+1. As a user, on the All Races Page, I want to be able to sort the list by:
+Race Type
+
+### R3:
+1. Photo upload for each race
+
 
 ## Dependencies
 
@@ -77,5 +112,4 @@ Developers should run these often!
 1.  All software code is licensed under GNU GPLv3. For commercial use or
     alternative licensing, please contact legal@ga.co.
 # lucky-socks-api
-# lucky-socks-client
 # lucky-socks-client
