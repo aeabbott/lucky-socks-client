@@ -23,12 +23,11 @@ $(() => {
   $('#login-form-link').on('click', authEvents.showLogInForm)
   // navbar hide on page load-show after sign in
   $('.navbar').hide()
-  // hiding birthday content on page load
+  // hiding race content on page load
   $('.show-all-races-content').hide()
   // log in and reg tab events
   $('#register-form-link').on('click', authEvents.showSignUpForm)
   $('#login-form-link').on('click', authEvents.showLogInForm)
   $('.change-pass-btn').on('click', authEvents.displayChangePassModal)
   $('.cls-pass-modal').on('click', authEvents.onClosePassModal)
-
 })
