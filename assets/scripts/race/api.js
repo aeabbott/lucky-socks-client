@@ -48,14 +48,23 @@ const createRace = function (data, timeInSeconds) {
 }
 
 // update a race
-const patchRace = function (id, data) {
+const patchRace = function (id, data, timeInSeconds) {
+  const race = {
+    race: {
+      name: 'Filler Name',
+      distance: data.race.distance,
+      time: timeInSeconds,
+      race_day: data.race.race_day,
+      location: data.race.location
+    }
+  }
   return $.ajax({
     url: config.apiOrigin + '/races/' + id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data
+    data: race
   })
 }
 
