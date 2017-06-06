@@ -4,8 +4,7 @@ const raceApi = require('./api.js')
 const raceUi = require('./ui.js')
 const authApi = require('../auth/api.js')
 const authUi = require('../auth/ui.js')
-const showAllRacesTemplate = require('../templates/all-races-list.handlebars')
-
+const moment = require('moment')
 
 // DISPLAY SIGN UP AND SIGN IN PAGE
 const onShowLandingPage = function () {
@@ -43,7 +42,7 @@ const onSignUp = function (event) {
 const showSignUpForm = function (event) {
   event.preventDefault()
  // switch to show the sign up form content when header tab is clicked
- console.log('Sign up tab header was clicked')
+  console.log('Sign up tab header was clicked')
   $('#login-form').hide()
   $('#register-form').show()
   $('#login-form-link').removeClass('active')
@@ -122,26 +121,38 @@ const addHomePageHandlers = function () {
   // Password modal handlers
   $('.change-pass-btn').on('click', displayChangePassModal)
   $('.cls-pass-modal').on('click', onClosePassModal)
-  //Password and form submit handlers
+  // Password and form submit handlers
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out').on('submit', onSignOut)
-  //Add race handler
+  // Add race handler
   $('.add-race-btn').on('click', displayAddRaceModal)
   $('.delete-button').on('click', onDeleteRace)
-
 }
 
 
 // SHOW RACE FUNCTIONALITY
-// show all the races
 const displayAllRaces = function () {
   console.log('display all races function ran')
   raceApi.indexRaces()
-  .then(onShowHomePage)
-  .catch(onError)
+    .then((data) => {
+      data.races = data.races.map(race => {
+        race.race_day = moment(race.race_day).format('MMM Do YYYY')
+        race.time = moment.utc(race.time * 1000).format('HH:mm:ss')
+        if (race.distance === 13.1) {
+          race.distance = 'Half Marathon'
+        } else if (race.distance === 26.2) {
+          race.distance = 'Marathon'
+        } else if (race.distance === 3.1) {
+          race.distance = '5k'
+        } else {
+          race.distance = '10k'
+        }
+        return race
+      })
+      onShowHomePage(data)
+    })
+      .catch(onError)
 }
-
-
 
 // ADD RACE FUNCTIONALITY
 // SHOW ADD RACE MODAL
