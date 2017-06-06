@@ -255,7 +255,12 @@ const onUpdateRace = function (event) {
   const id = $(this).attr('data-id')
   console.log(this)
   console.log('updateRace ran', id, data)
-  raceApi.patchRace(id, data)
+  const hours = (($('#update-hours').val()) * 60) * 60
+  const mins = ($('#update-minutes').val()) * 60
+  const seconds = ($('#update-seconds').val()) * 1
+  const timeInSeconds = hours + mins + seconds
+  console.log(timeInSeconds)
+  raceApi.patchRace(id, data, timeInSeconds)
     .then(displayAllRaces)
     .catch(onError)
 }
