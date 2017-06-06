@@ -165,6 +165,7 @@ const displayAddRaceModal = function (event) {
   console.log('display add race modal was clicked')
   event.preventDefault()
   $('#add-race-modal').modal({ show: true })
+  $('#add-race')[0].reset()
 }
 
 // CREATE RACE FUNCTION
