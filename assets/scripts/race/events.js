@@ -130,6 +130,7 @@ const addHomePageHandlers = function () {
   $('.delete-button').on('click', onDeleteRace)
   // Form submit handlers
   $('#update-race').on('submit', onUpdateRace)
+  $('#add-race').on('submit', addRace)
 
 }
 
@@ -164,8 +165,8 @@ const displayAddRaceModal = function (event) {
   console.log('display add race modal was clicked')
   event.preventDefault()
   $('#add-race-modal').modal({ show: true })
-  $('#add-race').on('submit', addRace)
 }
+
 // CREATE RACE FUNCTION
 const addRace = function (event) {
   console.log('add race button was clicked inside add race modal')
@@ -217,11 +218,30 @@ const displayUpdateModal = function () {
 // push the fields from the show to the update
 const prefilleRaceFields = function (data) {
   $('#update-race').attr('data-id', data.race.id)
-  console.log('prefilleRaceFields', data.race.id)
+  $('#race-day').val(data.race.race_day)
   $('#race-location').val(data.race.location)
-  // console.log(data.race.hours)
-  // console.log(data.race.minutes)
-  // console.log(data.race.seconds)
+// prefill dropdown boxes
+  if (data.race.distance === 13.1) {
+    $("select").val("13.1")
+  } else if (data.race.distance === 26.2) {
+    $("select").val("26.2")
+  } else if (data.race.distance === 3.1) {
+    $("select").val("3.1")
+  } else {
+    $("select").val("6.2")
+  }
+// code to prefill time goes here
+  const hours = moment.utc(data.race.time * 1000).format('HH')
+  const minutes = moment.utc(data.race.time * 1000).format('HH:mm').slice(3, 5)
+  const seconds = moment.utc(data.race.time * 1000).format('HH:mm:ss').slice(6, 8)
+  $('#update-hours').val(hours)
+  $('#update-minutes').val(minutes)
+  $('#update-seconds').val(seconds)
+
+
+  console.log(hours)
+  console.log(minutes)
+  console.log(seconds)
 }
 
 const showUpdateModal = function () {
