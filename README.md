@@ -12,17 +12,17 @@ Project Goal: To create a virtual “medal” holder where users input informati
 
 ### Core RQs:
 1. As a user, I want to be able to “create/log” a race distance and time I have ran.
-  1.1 User enters:
-    1.1.1 Race Date
-    1.1.2 Race Time- Hours, Mins, Seconds
-      1.1.2.1 If a field is left blank- default to zero
-      1.1.2.2 Mins is the only field required
-      1.1.2.3 Open question- can they enter 1:01 as 61 and will it still work
-  	1.2.1 Race Distance- Drop Down box
-	      1.2.1.1 Half
-	      1.2.1.2 Full
-    1.3.1 Race Name
-	  1.4.1 Race Location
+  1. User enters:
+    1. Race Date
+    1. Race Time- Hours, Mins, Seconds
+      1. If a field is left blank- default to zero
+      1. Mins is the only field required
+      1.Open question- can they enter 1:01 as 61 and will it still work
+  	1.Race Distance- Drop Down box
+	      1. Half
+	      1. Full
+    1. Race Name
+	  1.Race Location
 2. As a user, I want to be able to edit a race and distance and time I have ran.
 	1. Editable fields are:
 	        1. All fields
@@ -40,7 +40,9 @@ Race Type
 ### R3:
 1. Photo upload for each race
 
+## Wireframes
 
+link: http://imgur.com/a/IcQR9
 ## Dependencies
 
 Install with `npm install`.
