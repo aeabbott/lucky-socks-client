@@ -12,6 +12,18 @@ const indexRaces = function () {
   })
 }
 
+// show one race
+const showRace = function (id) {
+  console.log('race id is', id)
+  return $.ajax({
+    url: config.apiOrigin + '/races/' + id,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 // create one race
 const createRace = function (data, timeInSeconds) {
   console.log('createRace Api function was ran')
@@ -35,6 +47,18 @@ const createRace = function (data, timeInSeconds) {
   })
 }
 
+// update a race
+const patchRace = function (id, data) {
+  return $.ajax({
+    url: config.apiOrigin + '/races/' + id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 // delete race
 const destroyRace = function (id) {
   return $.ajax({
@@ -48,6 +72,9 @@ const destroyRace = function (id) {
 
 module.exports = {
   indexRaces,
+  showRace,
   createRace,
+  patchRace,
   destroyRace
+
 }

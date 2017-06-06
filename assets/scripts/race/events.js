@@ -124,9 +124,14 @@ const addHomePageHandlers = function () {
   // Password and form submit handlers
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out').on('submit', onSignOut)
-  // Add race handler
+  // Add race handler listeners
   $('.add-race-btn').on('click', displayAddRaceModal)
+  $('.update-button').on('click', displayUpdateModal)
   $('.delete-button').on('click', onDeleteRace)
+  // Form submit handlers
+  $('#update-race').on('submit', onUpdateRace)
+  $('#add-race').on('submit', addRace)
+
 }
 
 
@@ -160,8 +165,9 @@ const displayAddRaceModal = function (event) {
   console.log('display add race modal was clicked')
   event.preventDefault()
   $('#add-race-modal').modal({ show: true })
-  $('#add-race').on('submit', addRace)
+  $('#add-race')[0].reset()
 }
+
 // CREATE RACE FUNCTION
 const addRace = function (event) {
   console.log('add race button was clicked inside add race modal')
@@ -197,6 +203,61 @@ const onDeleteRace = function () {
   raceApi.destroyRace(id)
   .then(displayAllRaces)
   .catch(onError)
+}
+
+// show one race function when update button is pressed
+const displayUpdateModal = function () {
+  console.log('display update modal was clicked')
+  event.preventDefault()
+  const id = $(this).attr('data-id')
+  raceApi.showRace(id)
+  .then(prefilleRaceFields)
+  .then(showUpdateModal)
+  .catch(onError)
+}
+
+// push the fields from the show to the update
+const prefilleRaceFields = function (data) {
+  $('#update-race').attr('data-id', data.race.id)
+  $('#race-day').val(data.race.race_day)
+  $('#race-location').val(data.race.location)
+// prefill dropdown boxes
+  if (data.race.distance === 13.1) {
+    $("select").val("13.1")
+  } else if (data.race.distance === 26.2) {
+    $("select").val("26.2")
+  } else if (data.race.distance === 3.1) {
+    $("select").val("3.1")
+  } else {
+    $("select").val("6.2")
+  }
+// code to prefill time goes here
+  const hours = moment.utc(data.race.time * 1000).format('HH')
+  const minutes = moment.utc(data.race.time * 1000).format('HH:mm').slice(3, 5)
+  const seconds = moment.utc(data.race.time * 1000).format('HH:mm:ss').slice(6, 8)
+  $('#update-hours').val(hours)
+  $('#update-minutes').val(minutes)
+  $('#update-seconds').val(seconds)
+
+
+  console.log(hours)
+  console.log(minutes)
+  console.log(seconds)
+}
+
+const showUpdateModal = function () {
+  $('#update-race-modal').modal({ show: true })
+}
+
+const onUpdateRace = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  const id = $(this).attr('data-id')
+  console.log(this)
+  console.log('updateRace ran', id, data)
+  raceApi.patchRace(id, data)
+    .then(displayAllRaces)
+    .catch(onError)
 }
 
 // standard error function
