@@ -124,9 +124,13 @@ const addHomePageHandlers = function () {
   // Password and form submit handlers
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out').on('submit', onSignOut)
-  // Add race handler
+  // Add race handler listeners
   $('.add-race-btn').on('click', displayAddRaceModal)
+  $('.update-button').on('click', displayUpdateModal)
   $('.delete-button').on('click', onDeleteRace)
+  // Form submit handlers
+  $('#update-race').on('submit', onUpdateRace)
+
 }
 
 
@@ -197,6 +201,42 @@ const onDeleteRace = function () {
   raceApi.destroyRace(id)
   .then(displayAllRaces)
   .catch(onError)
+}
+
+// show one race function when update button is pressed
+const displayUpdateModal = function () {
+  console.log('display update modal was clicked')
+  event.preventDefault()
+  const id = $(this).attr('data-id')
+  raceApi.showRace(id)
+  .then(prefilleRaceFields)
+  .then(showUpdateModal)
+  .catch(onError)
+}
+
+// push the fields from the show to the update
+const prefilleRaceFields = function (data) {
+  $('#update-race').attr('data-id', data.race.id)
+  console.log('prefilleRaceFields', data.race.id)
+  $('#race-location').val(data.race.location)
+  // console.log(data.race.hours)
+  // console.log(data.race.minutes)
+  // console.log(data.race.seconds)
+}
+
+const showUpdateModal = function () {
+  $('#update-race-modal').modal({ show: true })
+}
+
+const onUpdateRace = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  const id = $(this).attr('data-id')
+  console.log(this)
+  console.log('updateRace ran', id, data)
+  raceApi.patchRace(id, data)
+    .then(displayAllRaces)
+    .catch(onError)
 }
 
 // standard error function
