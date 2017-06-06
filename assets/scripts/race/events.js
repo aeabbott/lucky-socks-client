@@ -81,7 +81,7 @@ const onSignOut = function (event) {
     .catch(authUi.signOutFailure)
 }
 
-const onChangePassword = function(event) {
+const onChangePassword = function (event) {
   event.preventDefault()
   // console.log('change password event just ran')
   $('.old-password-mismatch-message').hide()
@@ -127,6 +127,7 @@ const addHomePageHandlers = function () {
   $('#sign-out').on('submit', onSignOut)
   //Add race handler
   $('.add-race-btn').on('click', displayAddRaceModal)
+  $('.delete-button').on('click', onDeleteRace)
 
 }
 
@@ -176,6 +177,15 @@ const createRaceSuccess = function () {
   console.log('create Race Success ran')
   $('#add-race')[0].reset()
   displayAllRaces()
+}
+
+// delete race function
+const onDeleteRace = function () {
+  console.log('on delete race ran', this)
+  const id = $(this).attr('data-id')
+  raceApi.destroyRace(id)
+  .then(displayAllRaces)
+  .catch(onError)
 }
 
 // standard error function
