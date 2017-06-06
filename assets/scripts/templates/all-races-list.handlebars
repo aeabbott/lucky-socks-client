@@ -1,4 +1,4 @@
-<p>this is the show all races template</p>
+<p class ="no-races">display something here if table is empty</p>
 <!-- use data-id not just id-->
   <table class="table table-responsive" id='race-table'>
   <thead class="thead-default">
@@ -6,6 +6,7 @@
       <th colspan="1">Race Date</th>
       <th colspan="1">Location</th>
       <th colspan="1">Distance</th>
+      <th colspan="1">Pace</th>
       <th colspan="1">Result</th>
       <th colspan="2"></th>
     </tr>
@@ -17,6 +18,7 @@
         <td>{{race.race_day}}</td>
         <td>{{race.location}}</td>
         <td>{{race.distance}}</td>
+        <td>{{race.race_pace}}</td>
         <td>{{race.time}}</td>
         <td>
           <button type="button" class="btn btn-default update-button" data-id="{{race.id}}">
