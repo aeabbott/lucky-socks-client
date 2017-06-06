@@ -1,6 +1,6 @@
 'use strict'
 const store = require('../store')
-const raceEvents = require('../race/events.js')
+
 
 const signUpSuccess = (data) => {
   console.log(data)
@@ -21,8 +21,6 @@ const signUpFailure = (error) => {
 const signInSuccess = (data) => {
   console.log('signIn success ran data is:', data)
   store.user = data.user
-  // show all the race content
-  raceEvents.displayAllRaces()
   $('.show-all-races-content').show()
   // clear all forms and hide all messages
   $('.login-signup-container').hide()
@@ -55,7 +53,8 @@ const changePasswordFailure = (error) => {
 const signOutSuccess = (data) => {
   store.user = null
   $('.login-signup-container').show()
-  $('.show-all-races-content').hide()
+  $('.password-mismatch-message').hide()
+  $('.acct-success-message').hide()
   $('.navbar').hide()
 }
 
