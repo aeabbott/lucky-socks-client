@@ -16,19 +16,18 @@ Project Goal: To create a virtual “medal” holder where users input informati
     1. Race Date
     1. Race Time- Hours, Mins, Seconds
       1. If a field is left blank- default to zero
-      1. Mins is the only field required
-      1.Open question- can they enter 1:01 as 61 and will it still work
   	1.Race Distance- Drop Down box
 	      1. Half
 	      1. Full
-    1. Race Name
+	      2. 5k
+	      3. 10k
 	  1.Race Location
 2. As a user, I want to be able to edit a race and distance and time I have ran.
 	1. Editable fields are:
 	        1. All fields
 3. As a user, I want to be able to delete a race I have ran.
 4. As a user, I want to see all the races I have ran.
-	1. Default sort list by date
+	1. Default sort list by most recent race date appearing at the top
 
 
 ### R2:
