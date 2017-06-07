@@ -41,12 +41,14 @@ const signInFailure = (error) => {
 
 const changePasswordSuccess = (data) => {
   console.log('changePassword was successful and data is:', data)
+  $('#change-password')[0].reset()
   $('.old-password-mismatch-message').hide()
   $('.pass-success-message').show()
 }
 
 const changePasswordFailure = (error) => {
   console.error('changePassword failed failed ran data is:', error)
+  $('#change-password')[0].reset()
   $('.old-password-mismatch-message').show()
 }
 
