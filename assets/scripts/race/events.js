@@ -8,7 +8,7 @@ const moment = require('moment')
 
 // DISPLAY SIGN UP AND SIGN IN PAGE
 const onShowLandingPage = function () {
-  console.log('On show landing page ran')
+  // console.log('On show landing page ran')
   raceUi.showLandingPage()
   addLandingPageHandlers()
 }
@@ -30,7 +30,7 @@ const addLandingPageHandlers = function () {
 }
 
 const onSignUp = function (event) {
-  console.log('sign up ran')
+  // console.log('sign up ran')
   // this is pointing to the event.target
   const data = getFormFields(this)
   event.preventDefault()
@@ -42,7 +42,7 @@ const onSignUp = function (event) {
 const showSignUpForm = function (event) {
   event.preventDefault()
  // switch to show the sign up form content when header tab is clicked
-  console.log('Sign up tab header was clicked')
+  // console.log('Sign up tab header was clicked')
   $('#login-form').hide()
   $('#register-form').show()
   $('#login-form-link').removeClass('active')
@@ -51,7 +51,7 @@ const showSignUpForm = function (event) {
 
 const onSignIn = function (event) {
   event.preventDefault()
-  console.log('sign in ran')
+  // console.log('sign in ran')
   const data = getFormFields(this)
   authApi.signIn(data)
     .then(authUi.signInSuccess)
@@ -94,7 +94,7 @@ const onChangePassword = function (event) {
 
 const displayChangePassModal = function (event) {
   event.preventDefault()
-  console.log('change password button was clicked')
+  // console.log('change password button was clicked')
   $('.pass-success-message').hide()
   $('.old-password-mismatch-message').hide()
   $('#password-modal').modal({show: true})
@@ -109,7 +109,7 @@ const onClosePassModal = function (event) {
 
 // RENDER HOME PAGE - RACE LIST VIEW
 const onShowHomePage = function (data) {
-  console.log('onShowHomePage ran from events file')
+  // console.log('onShowHomePage ran from events file')
   raceUi.showHomePage(data)
   addHomePageHandlers()
 }
@@ -131,13 +131,11 @@ const addHomePageHandlers = function () {
   // Form submit handlers
   $('#update-race').on('submit', onUpdateRace)
   $('#add-race').on('submit', addRace)
-
 }
-
 
 // SHOW RACE FUNCTIONALITY
 const displayAllRaces = function () {
-  console.log('display all races function ran')
+  // console.log('display all races function ran')
   raceApi.indexRaces()
     .then((data) => {
       data.races = data.races.map(race => {
@@ -162,7 +160,7 @@ const displayAllRaces = function () {
 // ADD RACE FUNCTIONALITY
 // SHOW ADD RACE MODAL
 const displayAddRaceModal = function (event) {
-  console.log('display add race modal was clicked')
+  // console.log('display add race modal was clicked')
   event.preventDefault()
   $('#add-race-modal').modal({ show: true })
   $('#add-race')[0].reset()
@@ -170,7 +168,7 @@ const displayAddRaceModal = function (event) {
 
 // CREATE RACE FUNCTION
 const addRace = function (event) {
-  console.log('add race button was clicked inside add race modal')
+  // console.log('add race button was clicked inside add race modal')
   event.preventDefault()
   const data = getFormFields(event.target)
   // convert user input into seconds to send to API
@@ -178,11 +176,11 @@ const addRace = function (event) {
   const mins = ($('#minutes').val()) * 60
   const seconds = ($('#seconds').val()) * 1
   const timeInSeconds = hours + mins + seconds
-  console.log('hours are', hours, 'seconds')
-  console.log('mins are', mins, 'seconds')
-  console.log('seconds are', seconds, 'seconds')
-  console.log('total seconds are', timeInSeconds)
-  console.log('data is', data)
+  // console.log('hours are', hours, 'seconds')
+  // console.log('mins are', mins, 'seconds')
+  // console.log('seconds are', seconds, 'seconds')
+  // console.log('total seconds are', timeInSeconds)
+  // console.log('data is', data)
   // send data over to create a race
   raceApi.createRace(data, timeInSeconds)
   .then(createRaceSuccess)
@@ -191,7 +189,7 @@ const addRace = function (event) {
 
 // SUCCESS FUNCTION
 const createRaceSuccess = function () {
-  console.log('create Race Success ran')
+  // console.log('create Race Success ran')
   $('#add-race')[0].reset()
   $('body').removeClass('modal-open')
   displayAllRaces()
@@ -199,7 +197,7 @@ const createRaceSuccess = function () {
 
 // delete race function
 const onDeleteRace = function () {
-  console.log('on delete race ran', this)
+  // console.log('on delete race ran', this)
   const id = $(this).attr('data-id')
   raceApi.destroyRace(id)
   .then(displayAllRaces)
@@ -208,7 +206,7 @@ const onDeleteRace = function () {
 
 // show one race function when update button is pressed
 const displayUpdateModal = function () {
-  console.log('display update modal was clicked')
+  // console.log('display update modal was clicked')
   event.preventDefault()
   const id = $(this).attr('data-id')
   raceApi.showRace(id)
@@ -239,11 +237,9 @@ const prefilleRaceFields = function (data) {
   $('#update-hours').val(hours)
   $('#update-minutes').val(minutes)
   $('#update-seconds').val(seconds)
-
-
-  console.log(hours)
-  console.log(minutes)
-  console.log(seconds)
+  // console.log(hours)
+  // console.log(minutes)
+  // console.log(seconds)
 }
 
 const showUpdateModal = function () {
@@ -254,27 +250,27 @@ const onUpdateRace = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   const id = $(this).attr('data-id')
-  console.log(this)
-  console.log('updateRace ran', id, data)
+  // console.log(this)
+  // console.log('updateRace ran', id, data)
   const hours = (($('#update-hours').val()) * 60) * 60
   const mins = ($('#update-minutes').val()) * 60
   const seconds = ($('#update-seconds').val()) * 1
   const timeInSeconds = hours + mins + seconds
-  console.log(timeInSeconds)
+  // console.log(timeInSeconds)
   raceApi.patchRace(id, data, timeInSeconds)
     .then(updateRaceSuccess)
     .catch(onError)
 }
 
 const updateRaceSuccess = function () {
-  console.log('create Race Success ran')
+  // console.log('create Race Success ran')
   $('body').removeClass('modal-open')
   displayAllRaces()
 }
 
 // standard error function
 const onError = function (response) {
-  console.error(response)
+  // console.error(response)
 }
 module.exports = {
   onShowLandingPage,

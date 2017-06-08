@@ -14,7 +14,7 @@ const indexRaces = function () {
 
 // show one race
 const showRace = function (id) {
-  console.log('race id is', id)
+  // console.log('race id is', id)
   return $.ajax({
     url: config.apiOrigin + '/races/' + id,
     method: 'GET',
@@ -26,7 +26,7 @@ const showRace = function (id) {
 
 // create one race
 const createRace = function (data, timeInSeconds) {
-  console.log('createRace Api function was ran')
+  // console.log('createRace Api function was ran')
   const race = {
     race: {
       distance: data.race.distance,
@@ -35,7 +35,7 @@ const createRace = function (data, timeInSeconds) {
       location: data.race.location
     }
   }
-  console.log('race obj is', race)
+  // console.log('race obj is', race)
   return $.ajax({
     method: 'POST',
     url: config.apiOrigin + '/races/',
