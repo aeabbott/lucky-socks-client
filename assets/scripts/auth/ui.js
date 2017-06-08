@@ -3,7 +3,7 @@ const store = require('../store')
 
 
 const signUpSuccess = (data) => {
-  console.log(data)
+  // console.log(data)
   $('.acct-success-message').show()
   $('.password-mismatch-message').hide()
   // authEvents.showLogInForm()
@@ -14,12 +14,12 @@ const signUpSuccess = (data) => {
 }
 
 const signUpFailure = (error) => {
-  console.error(error)
+  // console.error(error)
   $('.password-mismatch-message').show()
 }
 
 const signInSuccess = (data) => {
-  console.log('signIn success ran data is:', data)
+  // console.log('signIn success ran data is:', data)
   store.user = data.user
   $('.show-all-races-content').show()
   // clear all forms and hide all messages
@@ -35,19 +35,19 @@ const signInSuccess = (data) => {
 }
 
 const signInFailure = (error) => {
-  console.error('signIn failed ran data is:', error)
+  // console.error('signIn failed ran data is:', error)
   $('.password-mismatch-message').show()
 }
 
 const changePasswordSuccess = (data) => {
-  console.log('changePassword was successful and data is:', data)
+  // console.log('changePassword was successful and data is:', data)
   $('#change-password')[0].reset()
   $('.old-password-mismatch-message').hide()
   $('.pass-success-message').show()
 }
 
 const changePasswordFailure = (error) => {
-  console.error('changePassword failed failed ran data is:', error)
+  // console.error('changePassword failed failed ran data is:', error)
   $('#change-password')[0].reset()
   $('.old-password-mismatch-message').show()
 }
