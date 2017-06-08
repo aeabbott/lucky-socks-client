@@ -47,7 +47,7 @@ To create a virtual “medal” holder where users input information about their
 
 ### Screenshots
 
-[alt text!] http://imgur.com/a/oUM6B
+![Alt Text] http://imgur.com/a/oUM6B
 
 ## Wireframes
 link: http://imgur.com/a/IcQR9
