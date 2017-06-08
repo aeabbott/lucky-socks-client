@@ -29,7 +29,6 @@ const createRace = function (data, timeInSeconds) {
   console.log('createRace Api function was ran')
   const race = {
     race: {
-      name: 'Filler Name',
       distance: data.race.distance,
       time: timeInSeconds,
       race_day: data.race.race_day,

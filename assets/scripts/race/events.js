@@ -193,6 +193,7 @@ const addRace = function (event) {
 const createRaceSuccess = function () {
   console.log('create Race Success ran')
   $('#add-race')[0].reset()
+  $('body').removeClass('modal-open')
   displayAllRaces()
 }
 
@@ -261,8 +262,14 @@ const onUpdateRace = function (event) {
   const timeInSeconds = hours + mins + seconds
   console.log(timeInSeconds)
   raceApi.patchRace(id, data, timeInSeconds)
-    .then(displayAllRaces)
+    .then(updateRaceSuccess)
     .catch(onError)
+}
+
+const updateRaceSuccess = function () {
+  console.log('create Race Success ran')
+  $('body').removeClass('modal-open')
+  displayAllRaces()
 }
 
 // standard error function
