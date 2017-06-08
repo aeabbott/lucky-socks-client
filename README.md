@@ -24,25 +24,50 @@ To create a virtual “medal” holder where users input information about their
   	1.Race Distance- Drop Down box
 	      1. Half
 	      1. Full
-	      2. 5k
-	      3. 10k
+	      1. 5k
+	      1. 10k
 	  1.Race Location
-2. As a user, I want to be able to edit a race and distance and time I have ran.
+1. As a user, I want to be able to edit a race and distance and time I have ran.
 	1. Editable fields are:
 	        1. All fields
-3. As a user, I want to be able to delete a race I have ran.
-4. As a user, I want to see all the races I have ran.
+1. As a user, I want to be able to delete a race I have ran.
+1. As a user, I want to see all the races I have ran.
 	1. Default sort list by most recent race date appearing at the top
 #### R2:
-1. As a user, when I log in, I want to see a view of all my PRs for each distance.
-1. As a user, when I create a race, I want the app to calculate and save my pace.
+
+1. As a user, when I create a race, I want the app to calculate and save my pace. (ACCOMPLISHED R1!)
+1. As a user, I want to be able to add a Race Name for each race.
 1. As a user, on the All Races Page, I want to be able to sort the list by:
-Race Type
+  1.Race Type
+  1. Race Name
+
 #### R3:
+1.1. As a user, when I log in, I want to see a view of all my PRs for each distance.
 1. Photo upload for each race
 
 ## Wireframes
 link: http://imgur.com/a/IcQR9
+
+## Development Approach
+
+After creating my user stories, I decided I wanted to set up the backend first and confirm
+everything was working on the backend before switching over to the front end. The backend
+set up went a lot smoother than project two, which I was very excited about. Once I had confirmed
+everything was all set with the backend, I moved to the front end.
+
+I really wanted to get into the meat of my app- the race list- as soon as possible, so
+I pulled out all the authentication styling and functions from project two to use for the
+front end authentication aspects of my app. Once that was all set, I let myself move onto the
+race list display.
+
+I'm most proud of how I present the race data to the user. As a runner, I know that I always want to know what my pace per mile was after a race, so even though I categorized race pace as a R2 story. I was able
+to pull it into R1 because I had completed my R1 stories.
+
+## Obstacles
+
+THings were going really well by day three so I decided I wanted to tackle the PR view of the App, which is actually slated for R2. I got the functionaity to work about half way and log in the console but not
+on the page. Due to time constraints, I had to abandon my PR view in order to turn in a good product.
+I'm looking forward to picking that back up for R2. 
 
 ## Dependencies
 
