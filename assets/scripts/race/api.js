@@ -50,7 +50,6 @@ const createRace = function (data, timeInSeconds) {
 const patchRace = function (id, data, timeInSeconds) {
   const race = {
     race: {
-      name: 'Filler Name',
       distance: data.race.distance,
       time: timeInSeconds,
       race_day: data.race.race_day,
