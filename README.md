@@ -45,6 +45,10 @@ To create a virtual “medal” holder where users input information about their
 1.1. As a user, when I log in, I want to see a view of all my PRs for each distance.
 1. Photo upload for each race
 
+### Screenshots
+
+[alt text!] http://imgur.com/a/oUM6B
+
 ## Wireframes
 link: http://imgur.com/a/IcQR9
 
@@ -67,7 +71,7 @@ to pull it into R1 because I had completed my R1 stories.
 
 THings were going really well by day three so I decided I wanted to tackle the PR view of the App, which is actually slated for R2. I got the functionaity to work about half way and log in the console but not
 on the page. Due to time constraints, I had to abandon my PR view in order to turn in a good product.
-I'm looking forward to picking that back up for R2. 
+I'm looking forward to picking that back up for R2.
 
 ## Dependencies
 
